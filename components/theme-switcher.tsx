@@ -15,6 +15,8 @@ export const ThemeSwitcher = () => {
     { name: "system", label: "System", icon: "⚙️" },
   ];
 
+  const activeTheme = hasAdaptiveThemes ? "system" : theme;
+
   return (
     <View className="gap-4 p-4">
       <Text className="text-sm text-gray-600 dark:text-gray-300">
@@ -29,7 +31,7 @@ export const ThemeSwitcher = () => {
             className={`
               items-center rounded-lg px-4 py-3
               ${
-                theme === t.name
+                activeTheme === t.name
                   ? "bg-blue-500"
                   : "bg-gray-200 dark:bg-gray-700"
               }
@@ -38,7 +40,7 @@ export const ThemeSwitcher = () => {
             <Text className="mb-1 text-2xl">{t.icon}</Text>
             <Text
               className={`text-xs ${
-                theme === t.name
+                activeTheme === t.name
                   ? "text-white"
                   : "text-gray-900 dark:text-white"
               }`}
